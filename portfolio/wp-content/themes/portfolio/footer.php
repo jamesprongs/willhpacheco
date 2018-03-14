@@ -3,8 +3,8 @@
 
 				<!-- copyright -->
 				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
+					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'whpPortfolio'); ?>
+					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//whpPortfolio.com" title="WHP Portfolio">WHP Portfolio</a>.
 				</p>
 				<!-- /copyright -->
 
@@ -14,7 +14,21 @@
 		</div>
 		<!-- /wrapper -->
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/magnific-1.1.0.js"></script>
+
+		<script>
+			$('.test-popup-link').magnificPopup({
+			type: 'image'
+			// other options
+			});
+			</script>
+
 		<?php wp_footer(); ?>
+		
+		
 
 		<!-- analytics -->
 		<script>

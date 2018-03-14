@@ -54,7 +54,6 @@
                 padding: 0;
                 display: block;
             }
-
         html, body {
             margin: 0;
             padding: 0;
@@ -68,13 +67,8 @@
             background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
             background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#40000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            background-color: #5991ac;
         }
-
-            html {
-                
-            }
-
-            @import url('https://fonts.googleapis.com/css?family=Roboto');
             body {
                 font-family: 'Roboto', sans-serif;
                 font-weight:light;
@@ -83,70 +77,6 @@
 
             h1, h2, h3, h4, h5 { /*font*/
             }
-            /* Richard Rutter method to set default font size to 10pt */
-            h1 {
-                font-size: 2.2em;
-            }
-
-            h2 {
-                font-size: 2.0em;
-            }
-
-            h3 {
-                font-size: 1.8em;
-            }
-
-            h4 {
-                font-size: 1.6em;
-            }
-
-            h5 {
-                font-size: 1.4em;
-            }
-
-            p {
-                font-size: 1.2em;
-                text-shadow: 1px 1px 1px #242424;
-            }
-
-            input.text {
-            }
-
-            table {
-                border-spacing: 0;
-                border-collapse: collapse;
-            }
-
-            td {
-                text-align: left;
-                font-weight: normal;
-            }
-
-            a:link {
-                
-            }
-
-            a:active {
-            }
-
-            a:hover {
-            }
-
-            a:visited {
-            }
-
-            ::-moz-selection {
-            }
-
-            ::selection {
-            }
-
-            body {
-                padding: 0;
-                margin: 0;
-                background-color: #5991ac;
-            }
-
             nav {
                 background-color: #242424;
                 color: #fff;
@@ -205,36 +135,12 @@
             border-left: 1px solid #242424;
             background: url('img/blue-paperfibre.png') repeat;
         }
-
-                #portfolio-subtitle, #company-subtitle {
-                    position: absolute;
-                    
-                    opacity: 0;
-                    
-                    -webkit-transition: all 1s ease-in-out;
-                    transition: all 1s ease-in-out;
-                }
-
-            #portfolio-subtitle{ right: 20px; }
-            #company-subtitle { left: 20px; }
-            .left-box:hover #portfolio-subtitle, .right-box:hover #company-subtitle {
-                opacity: 1;
-            }
-            .left-box:hover #portfolio-subtitle {
-                right: 30%; 
-            }
-            .right-box:hover #company-subtitle {
-                left: 33%; 
-            }
-
-            .grow {
-                width: 55%
-            }
-
-            .shrink {
-                width: 45%
-            }
-
+        .grow {
+            width: 55%
+        }
+        .shrink {
+            width: 45%
+        }
         .content {
             padding: 20px;
             height: 100vh;
@@ -276,6 +182,24 @@
             .right-box:hover .company-name {
                 opacity: 1;
             }
+            #portfolio-subtitle, #company-subtitle {
+            position: absolute;
+             opacity: 0;
+            -webkit-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+        }
+
+        #portfolio-subtitle{ right: 20px; }
+        #company-subtitle { left: 20px; }
+        .left-box:hover #portfolio-subtitle, .right-box:hover #company-subtitle {
+            opacity: 1;
+        }
+        .left-box:hover #portfolio-subtitle {
+            right: 30%; 
+        }
+        .right-box:hover #company-subtitle {
+            left: 33%; 
+        }
             .portfolio-logo {
                 position:absolute;
                 top:35%;
