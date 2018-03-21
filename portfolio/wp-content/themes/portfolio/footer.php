@@ -1,13 +1,18 @@
 			<!-- footer -->
 			<footer class="footer" role="contentinfo">
 
+				<nav class="nav" role="navigation">
+					<?php whpPortfolio_nav(); ?>
+				</nav>
+				
 				<!-- copyright -->
 				<p class="copyright">
 					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'whpPortfolio'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//whpPortfolio.com" title="WHP Portfolio">WHP Portfolio</a>.
+					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="http://html5blank.com/" title="HTML5 Blank">HTML5 Blank</a>.
 				</p>
 				<!-- /copyright -->
 
+				<?php get_template_part('searchform'); ?>
 			</footer>
 			<!-- /footer -->
 
@@ -20,12 +25,31 @@
 		<script src="<?php echo get_template_directory_uri(); ?>/js/magnific-1.1.0.js"></script>
 
 		<script>
-			$('.test-popup-link').magnificPopup({
+			$('.popup-link').magnificPopup({
 			type: 'image'
 			// other options
 			});
-			</script>
+			$('.gallery-link').magnificPopup({
+				type: 'image',
+				gallery:{
+					enabled:true
+				}
+			});
+			$('.post-wrap').hover(function() {
+				$(this).find(".post-excerpt").stop().slideToggle('fast');
+			});
 
+			var headerHeight = $('header').innerHeight();
+			$('.header-gap').css('height', headerHeight+'px');
+			$( window ).resize(function() {
+				var headerHeight = $('header').innerHeight();
+				$('.header-gap').css('height', headerHeight+'px');
+			});
+		</script>
+		<script>
+			
+
+		</script>
 		<?php wp_footer(); ?>
 		
 		

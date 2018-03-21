@@ -13,9 +13,7 @@
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
 		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Roboto+Condensed" rel="stylesheet"> 
-		<link href="https://fonts.googleapis.com/css?family=Patrick+Hand|Patrick+Hand+SC" rel="stylesheet">
-
-
+		<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Patrick+Hand|Patrick+Hand+SC" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/magnific.css">
@@ -35,7 +33,7 @@
 
 	<div class="container-fluid">
 			<!-- header -->
-			<header class="header clear" role="banner">
+			<header class="header fixed-top clear" role="banner">
 
 					<!-- logo -->
 					<div class="logo">
@@ -55,6 +53,6 @@
 			</header>
 			<!-- /header -->
 	</div>
-
+	<div class="header-gap"> </div>
 <!-- container -->
 <div class="container">

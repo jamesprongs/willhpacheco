@@ -23,31 +23,28 @@
 			<!-- article -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<!-- post thumbnail -->
-				<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+						<div class="post-border">
+							<div class="post-wrap">
+								<div class="thumbnail-wrap">
+									<div class="post-description">
+										<h4><?php the_title(); ?></h4>
+										<div class="post-excerpt"><p><?php the_excerpt() ?></p></div>
+									</div>
+									<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+								</div>
+							</div>
+						</div>
 					</a>
-				<?php endif; ?>
-				<!-- /post thumbnail -->
-
-				<!-- post title -->
-				<h2>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</h2>
-				<!-- /Post title -->
 
 				<!-- post details -->
-				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-				<span class="author"><?php _e( 'Published by', 'whpPortfolio' ); ?> <?php the_author_posts_link(); ?></span>
-				<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'whpPortfolio' ), __( '1 Comment', 'whpPortfolio' ), __( '% Comments', 'whpPortfolio' )); ?></span>
+				<!--span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span-->
+				<!--span class="author"><?php _e( 'Published by', 'whpPortfolio' ); ?> <?php the_author_posts_link(); ?></span-->
+				<!--span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'whpPortfolio' ), __( '1 Comment', 'whpPortfolio' ), __( '% Comments', 'whpPortfolio' )); ?></span-->
 				<!-- /post details -->
 
-				<?php whp_excerpt('whp_index'); // Build your custom callback length in functions.php ?>
+				<?php //whp_excerpt('whp_index'); // Build your custom callback length in functions.php ?>
 
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
 
 			</article>
 			<!-- /article -->
@@ -67,6 +64,12 @@
 		<?php endif; ?>
 
 			<?php get_template_part('pagination'); ?>
+
+			<aside class="sidebar" role="complementary">
+							<div class="sidebar-widget">
+								<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-instagram')) ?>
+							</div>
+						</aside>
 
 		</section>
 		<!-- /section -->

@@ -193,6 +193,17 @@ if (function_exists('register_sidebar'))
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
+
+    // Define Sidebar Widget Area 3
+    register_sidebar(array(
+        'name' => __('Instagram Widget Area', 'whpPortfolio'),
+        'description' => __('Description for this widget-area...', 'whpPortfolio'),
+        'id' => 'widget-instagram',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
 }
 
 // Remove wp_head() injected Recent Comment styles
@@ -436,6 +447,35 @@ function create_post_type_html5()
 /*------------------------------------*\
 	ShortCode Functions
 \*------------------------------------*/
+
+//custom gallery code
+add_filter('post_gallery','customFormatGallery',10,2);
+
+function customFormatGallery($string,$attr){
+
+    $output = "<div id=\"container\">";
+    $posts = get_posts(array('include' => $attr['ids'],'post_type' => 'attachment'));
+
+    foreach($posts as $imagePost){
+        $output .= "<a class=\"gallery-link\" href='".wp_get_attachment_image_src($imagePost->ID, 'extralarge')[0]."' title='".wp_get_attachment_caption($imagePost->ID)."' >";
+        $output .= "<div class=\"post-border \">";
+        $output .= "<div class=\"post-wrap\">";
+        $output .= "<div class=\"thumbnail-wrap\">";
+        $output .= "<div class=\"gallery-screen\">".wp_get_attachment_caption($imagePost->ID);
+        $output .= "<br /><img src='".get_template_directory_uri()."/img/eye-icon.png' alt='click here' /><br /> view full size image</div>";
+        $output .= "<img src='".wp_get_attachment_image_src($imagePost->ID, 'extralarge')[0]."' data-media=\"(min-width: 1200px)\" title='".wp_get_attachment_caption($imagePost->ID)."'>";
+        
+        $output .= "</div>";
+        $output .= "</div>";
+        $output .= "</div>";
+        $output .= "</a>";
+    }
+
+    $output .= "</div>";
+
+    return $output;
+}
+
 
 // Shortcode Demo with Nested Capability
 function whp_shortcode_demo($atts, $content = null)

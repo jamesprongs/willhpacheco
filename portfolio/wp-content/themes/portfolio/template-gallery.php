@@ -1,29 +1,36 @@
+<?php
+/*
+Template Name: Gallery/Portfolio
+*/
+?>
+
 <?php get_header(); ?>
-</div>
+
 	<main role="main">
 		<!-- section -->
 		<section>
 
-			
+			<?php
+				$args = array(
+					'numberposts' => -1, // Using -1 loads all posts
+					'orderby' => 'menu_order', // This ensures images are in the order set in the page media manager
+					'order'=> 'ASC',
+					'post_mime_type' => 'image', // Make sure it doesn't pull other resources, like videos
+					'post_parent' => $post->ID, // Important part - ensures the associated images are loaded
+					'post_status' => null,
+					'post_type' => 'attachment'
+				);
+				
+				$images = get_children( $args );
+				// continued below ...
+				?>
+
+			<h1><?php the_title(); ?></h1>
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 			<!-- article -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				
-				<a class="popup-link" href="<?php the_post_thumbnail_url(); ?>" title="<?php the_title(); ?>" >
-					<div class="thumbnail-wrap">
-						<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-					</div>
-				</a>
-			
-			<?php endif; ?>
-			<!-- /post thumbnail -->
-			<div class="container">	
-			<h1><?php the_title(); ?></h1>
 
 				<?php the_content(); ?>
 
@@ -53,7 +60,7 @@
 		</section>
 		<!-- /section -->
 	</main>
-	<div class="container">
+
 <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
